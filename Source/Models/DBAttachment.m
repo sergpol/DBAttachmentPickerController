@@ -77,7 +77,7 @@
     NSData *imgData = UIImageJPEGRepresentation(image, 1);
     model.fileSize = imgData.length;
     model.creationDate = [NSDate date];
-    model.fileName = @"capturedimage";
+    model.fileName = @"capturedimage.jpg";
     
     return model;
 }
