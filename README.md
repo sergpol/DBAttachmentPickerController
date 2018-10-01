@@ -119,7 +119,7 @@ Denis Bogatyrev (maintainer)
 - https://github.com/d0ping
 - denis.bogatyrev@gmail.com
 
-##License
+## License
 
 DBAttachmentPickerController - Copyright (c) 2016 Denis Bogatyrev
 
