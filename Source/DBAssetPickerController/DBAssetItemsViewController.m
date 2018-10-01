@@ -185,6 +185,9 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.tintColor = self.collectionView.tintColor;
     cell.identifier = asset.localIdentifier;
     cell.needsDisplayEmptySelectedIndicator = NO;
+    
+    [self.imageManager cancelImageRequest:cell.phImageRequestID];
+    
     [cell.assetImageView configureWithAssetMediaType:asset.mediaType subtype:asset.mediaSubtypes];
     
     if (asset.mediaType == PHAssetMediaTypeVideo) {
@@ -201,15 +204,20 @@ static NSString * const reuseIdentifier = @"Cell";
     CGSize size = [self collectionItemCellSizeAtIndexPath:indexPath];
     CGSize scaledThumbnailSize = CGSizeMake( size.width * scale, size.height * scale );
     
-    [self.imageManager requestImageForAsset:asset
+    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+    options.resizeMode = PHImageRequestOptionsResizeModeExact;
+    options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
+    
+    cell.phImageRequestID = [self.imageManager requestImageForAsset:asset
                                  targetSize:scaledThumbnailSize
                                 contentMode:PHImageContentModeAspectFill
-                                    options:nil
+                                    options:options
                               resultHandler:^(UIImage *result, NSDictionary *info) {
                                   if ([cell.identifier isEqualToString:asset.localIdentifier]) {
                                       cell.assetImageView.image = result;
                                   }
                               }];
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
