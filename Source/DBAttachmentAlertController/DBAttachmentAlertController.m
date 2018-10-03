@@ -85,10 +85,11 @@ static NSString *const kPhotoCellIdentifier = @"DBThumbnailPhotoCellID";
         controller.attachActionText = attachAction.title;
         
         controller.extensionAttachHandler = ^(NSArray * _Nonnull assetArray) {
-            if (attachHandler) {
-                attachHandler(assetArray);
-            }
-            [weakController dismissViewControllerAnimated:YES completion:nil];
+            [weakController dismissViewControllerAnimated:YES completion: ^{
+                if (attachHandler) {
+                    attachHandler(assetArray);
+                }
+            }];
         };
     }
     
