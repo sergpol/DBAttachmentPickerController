@@ -48,6 +48,8 @@ static const CGFloat kDefaultSelectorImageViewOffset = 4.f;
     
     self.selectorImageView.image = [UIImage imageOfSelectorOffIcon];
     self.selectorImageView.highlightedImage = [UIImage imageOfSelectorOnIconWithTintColor:self.tintColor];
+    self.assetImageView.layer.cornerRadius = 12;
+    self.assetImageView.clipsToBounds = YES;
 }
 
 - (void)prepareForReuse {

@@ -63,7 +63,7 @@ static NSString *const kAttachmentCellIdentifier = @"AttachmentCellID";
     attachmentPickerController.capturedVideoQulity = UIImagePickerControllerQualityTypeHigh;
     attachmentPickerController.senderView = senderView;
     attachmentPickerController.allowsMultipleSelection = YES;
-    attachmentPickerController.allowsSelectionFromOtherApps = YES;
+    attachmentPickerController.allowsSelectionFromOtherApps = NO;
     
     [attachmentPickerController presentOnViewController:self];
 }

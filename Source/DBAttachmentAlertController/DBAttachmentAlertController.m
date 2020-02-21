@@ -26,7 +26,7 @@
 #import "NSIndexSet+DBLibrary.h"
 
 static const CGFloat kDefaultThumbnailHeight = 100.f;
-static const CGFloat kDefaultItemOffset = 11.f;
+static const CGFloat kDefaultItemOffset = 8.f;
 static const CGFloat kDefaultInteritemSpacing = 4.f;
 static NSString *const kPhotoCellIdentifier = @"DBThumbnailPhotoCellID";
 
@@ -358,7 +358,8 @@ static NSString *const kPhotoCellIdentifier = @"DBThumbnailPhotoCellID";
     PHAsset *asset = self.assetsFetchResult[indexPath.item];
     const CGFloat coef = (CGFloat)asset.pixelWidth / (CGFloat)asset.pixelHeight;
     CGFloat maxWidth = CGRectGetWidth(self.collectionView.bounds) - kDefaultInteritemSpacing *2;
-    return CGSizeMake( MIN( kDefaultThumbnailHeight * coef, maxWidth ), kDefaultThumbnailHeight );
+    //return CGSizeMake( MIN( kDefaultThumbnailHeight * coef, maxWidth ), kDefaultThumbnailHeight );
+    return CGSizeMake(kDefaultThumbnailHeight, kDefaultThumbnailHeight);
 }
 
 - (void)recalculateVisibleCellsSelectorOffsetWithScrollViewOffsetX:(CGFloat)offsetX {

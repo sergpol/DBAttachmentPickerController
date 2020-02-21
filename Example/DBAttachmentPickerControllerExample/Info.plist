@@ -22,6 +22,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Pick a photo</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a photo or video</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Make a video</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Pick a photo</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
